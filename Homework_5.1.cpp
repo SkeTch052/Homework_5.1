@@ -4,9 +4,13 @@
 
 class Figure {
 protected:
-    int sides_count = 0;
-    std::string name = "Фигура";
+    int sides_count;
+    std::string name;
 public:
+    Figure () {
+        sides_count = 0;
+        name = "Фигура";
+    }
     int get_sides_count() {
         return sides_count;
     }
@@ -17,7 +21,7 @@ public:
 
 class Triangle : public Figure {
 public:
-    void set () {
+    Triangle() {
         name = "Треугольник";
         sides_count = 3;
     }
@@ -25,7 +29,7 @@ public:
 
 class Quadrangle : public Figure {
 public:
-    void set () {
+    Quadrangle() {
         name = "Четырёхугольник";
         sides_count = 4;
     }
@@ -40,9 +44,7 @@ int main() {
 
     std::cout << "Количество сторон:\n";
     std::cout << figure.get_name() << ": " << figure.get_sides_count() << std::endl;
-    triangle.set();
     std::cout << triangle.get_name() << ": " << triangle.get_sides_count() << std::endl;
-    quadrangle.set();
     std::cout << quadrangle.get_name() << ": " << quadrangle.get_sides_count() << std::endl;
 
     return 0;
